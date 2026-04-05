@@ -86,7 +86,10 @@ class GameServer:
 
                 if (self.ball['x'] <= 40 and self.paddles[0] <= self.ball['y'] <= self.paddles[0] + 100) or \
                    (self.ball['x'] >= WIDTH - 40 and self.paddles[1] <= self.ball['y'] <= self.paddles[1] + 100):
-                    self.ball['vx'] *= -1
+                    if self.ball['x'] <= 40: self.ball['x'] = 41
+                    else: self.ball['x'] = WIDTH - 41
+                    self.ball['vx'] *= -1.1
+                    self.ball['vy'] *= (1 + random.coice([0.1 * a for a in range(-3, 4)]))
                     self.sound_event = 'platform_hit'
 
                 if self.ball['x'] < 0:

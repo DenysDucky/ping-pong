@@ -101,6 +101,7 @@ while True:
         screen.blit(transform.scale(p2_img, (20, 100)), (WIDTH - 40, game_state['paddles']['1']))
 
         screen.blit(transform.scale(ball_img, (20, 20)), (game_state['ball']['x'], game_state['ball']['y']))
+        draw.rect(screen, "#ff0000", (game_state['ball']['x'], game_state['ball']['y'], 20, 20), width=2)
 
         score_text = font_main.render(f"{game_state['scores'][0]} : {game_state['scores'][1]}", True, (255, 255, 255))
         screen.blit(score_text, (WIDTH // 2 - 25, 20))
